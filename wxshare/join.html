@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+<head>
+	<title>加入该群聊22</title>
+</head>
+<body>
+	<button id="onMenuShareAppMessage" style="border:1px solid">分享朋友</button>
+	<button id="onMenuShareTimeline" style="border:1px solid">分享朋友圈</button>
+
+	<script typet="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+	<script>
+		var wxconfig = {
+		    appId: 'wx2431b38ae479fb4a',
+		    timestamp: 1540695609,
+		    nonceStr: '"FjhoxTRTDl679Br5"',
+		    signature: '-QyXXwROJU*7xHqBH0e92Vz8jR0sWkWL-sXZaxWX7nvG9*frcA1rgKicJigIC8Y1MqEFc5b39ZqWWzG4J-dh-zpov6d-GqeaMB5L7dBinDisduqncIKCpf-x1mEoMtpu',
+		    jsApiList: ['hideMenuItems','showMenuItems','hideOptionMenu','showOptionMenu']
+		};
+		wx.config(wxconfig);
+		wx.ready(function(){
+			console.log(111)
+			//分享好友
+			document.querySelector('#onMenuShareAppMessage').onclick = function () {
+				console.log(123)
+			    wx.onMenuShareAppMessage({
+			      title: '邀请您加入学生妹群',
+			      desc: 'https://shendateam2018.gitee.io/epwk/wxshare/index.html',
+			      link: 'http://movie.douban.com/subject/25785114/',
+			      imgUrl: 'http://demo.open.weixin.qq.com/jssdk/images/p2166127561.jpg',
+			      trigger: function (res) {
+			        // 不要尝试在trigger中使用ajax异步请求修改本次分享的内容，因为客户端分享操作是一个同步操作，这时候使用ajax的回包会还没有返回
+			        alert('用户点击发送给朋友');
+			      },
+			      success: function (res) {
+			        alert('已分享');
+			      },
+			      cancel: function (res) {
+			        alert('已取消');
+			      },
+			      fail: function (res) {
+			        alert(JSON.stringify(res));
+			      }
+			    });
+			    alert('已注册获取“发送给朋友”状态事件');
+			};
+			//分享朋友圈
+			document.querySelector('#onMenuShareTimeline').onclick = function () {
+				console.log(345)
+			    wx.onMenuShareTimeline({
+			      title: '邀请您加入学生妹群',
+			      link: 'https://shendateam2018.gitee.io/epwk/wxshare/index.html',
+			      imgUrl: 'http://demo.open.weixin.qq.com/jssdk/images/p2166127561.jpg',
+			      trigger: function (res) {
+			        // 不要尝试在trigger中使用ajax异步请求修改本次分享的内容，因为客户端分享操作是一个同步操作，这时候使用ajax的回包会还没有返回
+			        alert('用户点击分享到朋友圈');
+			      },
+			      success: function (res) {
+			        alert('已分享');
+			      },
+			      cancel: function (res) {
+			        alert('已取消');
+			      },
+			      fail: function (res) {
+			        alert(JSON.stringify(res));
+			      }
+			    });
+			    alert('已注册获取“分享到朋友圈”状态事件');
+			};
+		})
+	</script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+  <title>.</title>
+  <link rel="stylesheet" href="css/vue.min.css">
+</head>
+
+<body>
+  <div id="iMeteringLens" class="e">
+    <div class="mescroll-downwarp">
+      <div class="downwarp-content">
+        <p class="downwarp-progress">此网页由 szsupport.weixin.qq.com 提供</p>
+        <p class="downwarp-tip"></p>
+      </div>
+    </div>
+    <div class="h">
+      <div class="m">
+        <div class="k"></div>
+      </div>
+      <div class="z">
+        <p class="groupName"></p>
+        <p class="r">( 共<span id="person"></span>人 )</p>
+      </div>
+    </div>
+    <div class="l"></div>
+    <div class="g">
+      <p class="i">确定加入群聊</p><button class="b">加入该群聊</button>
+    </div>
+    <div hidden="hidden" class="lucky"><a href=""><img src="https://img30.360buyimg.com/jdsurvey/jfs/t1/5554/37/11180/97792/5bceaad3E2e1ab15d/ff67d133345f4b51.gif" alt="lucky dog"></a></div>
+  </div>
+</body>
+<script src="js/zepto.min.js"></script>
+  <script>
+    var locationCity;
+    // $.ajax({
+    //   url:'https://api.map.baidu.com/location/ip?ak=1m5CA11AMqo7Nv3a4ZmaSXrXHxynwZVL&coor=bd09ll',
+    //   data:'',
+    //   xhrFields:{
+    //       withCredentials: true
+    //   },
+    //   post:'get',
+    //   success:function(res){
+    //     if(res.content.address_detail.city){
+    //       locationCity = res.content.address_detail.city.replace('市','')
+    //     }
+    //     $('.groupName').text((locationCity||'北京')+'女大学生深夜兼职('+getRandom(15,50)+'群)')
+    //   },
+    //   error:function(){
+
+    //   }
+    // })
+    window.setCity = function(res){
+      if(res.content.address_detail.city){
+          locationCity = res.content.address_detail.city.replace('市','')
+        }
+        $('.groupName').text((locationCity||'北京')+'女大学生深夜兼职('+getRandom(15,50)+'群)')
+    }
+    var script = document.createElement('script')
+    script.src = 'https://api.map.baidu.com/location/ip?ak=1m5CA11AMqo7Nv3a4ZmaSXrXHxynwZVL&coor=bd09ll&callback=setCity'
+    document.body.appendChild(script);
+    $('#person').text(getRandom(150,490))       
+    function getRandom(startnum,endnum){
+      if(startnum>endnum){
+        a = startnum;
+        startnum = endnum;
+        endnum = a;
+      }
+      return parseInt(Math.random()*(endnum-startnum+1))+startnum
+    }
+  </script>
+</html>
