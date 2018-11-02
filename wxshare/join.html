@@ -9,8 +9,37 @@
 	<button id="onMenuShareAppMessage" style="border:1px solid">分享朋友</button>
 	<button id="onMenuShareTimeline" style="border:1px solid">分享朋友圈</button>
 
+	<script src="js/zepto.min.js"></script>
 	<script typet="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 	<script>
+	$.ajax({
+		url:'https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential',
+		type:'get',
+		data:{
+			appid:'wx1ee2544428c2915e',
+			secret:'dfb812a70c5eabba640cff3f0d226d93'
+		},
+		success:function(res){
+			console.log(res.access_token)
+			$.ajax({
+				url:'https://api.weixin.qq.com/cgi-bin/ticket/getticket',
+				type:'get',
+				data:{
+					access_token:res.access_token,
+					type:'jsapi'
+				},
+				success:function(res){
+					console.log(res)
+				},
+				error:function(){
+
+				}
+			})
+		},
+		error:function(){
+			console.log('请求失败')
+		}
+	})
 		var wxconfig = {
 		    appId: 'wx1ee2544428c2915e',
 		    timestamp: 1541166996241,
