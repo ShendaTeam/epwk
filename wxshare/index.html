@@ -35,23 +35,6 @@
 <script src="js/zepto.min.js"></script>
   <script>
     var locationCity;
-    // $.ajax({
-    //   url:'https://api.map.baidu.com/location/ip?ak=1m5CA11AMqo7Nv3a4ZmaSXrXHxynwZVL&coor=bd09ll',
-    //   data:'',
-    //   xhrFields:{
-    //       withCredentials: true
-    //   },
-    //   post:'get',
-    //   success:function(res){
-    //     if(res.content.address_detail.city){
-    //       locationCity = res.content.address_detail.city.replace('市','')
-    //     }
-    //     $('.groupName').text((locationCity||'北京')+'女大学生深夜兼职('+getRandom(15,50)+'群)')
-    //   },
-    //   error:function(){
-
-    //   }
-    // })
     window.setCity = function(res){
       if(res.content.address_detail.city){
           locationCity = res.content.address_detail.city.replace('市','')
@@ -70,5 +53,8 @@
       }
       return parseInt(Math.random()*(endnum-startnum+1))+startnum
     }
+    $('.b').on('click',function(){
+      location.href = 'talkroom.html'
+    })
   </script>
 </html>
