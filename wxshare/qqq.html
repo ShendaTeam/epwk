@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+  	<link rel="stylesheet" href="css/join.css">
+</head>
+<body>
+	<div class="wrap">
+		<img class="time" src="images/111.jpg" alt="">
+		<div class="item">
+			<img class="left head" src="images/1433645090.jpg" alt="">
+			<div class="right">
+				<p class="name fl">丹妮</p>
+				<img class="video fl" src="images/478375668.jpg" alt="">
+			</div>
+		</div>
+		<div class="item">
+			<img class="left head" src="images/516979030.jpg" alt="">
+			<div class="right">
+				<p class="name fl">思瑶</p>
+				<img class="video fl" src="images/2013582342.jpg" alt="">
+			</div>
+		</div>
+		<div class="item">
+			<img class="left head" src="images/918544974.jpg" alt="">
+			<div class="right">
+				<p class="name fl">红夯天下</p>
+				<img class="yip fl" src="images/892621587.jpg" alt="">
+			</div>
+		</div>
+		<div class="hint">你已被“<span>群主</span>”移出群聊</div>
+	</div>
+	<div class="shade">
+		<img src="images/127380645.jpg" alt="">
+		<div class="box-wrap">
+			<div class="box">
+				<h2>温馨提示</h2>
+				<p>完成分享任务，获取免踢资格<br/>(请分享到一个微信群)</p>
+			</div>
+			<a href="javascript:void(0)" class="confirm">确认</a>
+		</div>
+	</div>
+</body>
+<script src="js/zepto.min.js"></script>
+<script>
+	$('.confirm').on('click',function(e){
+		e.stopPropagation();
+		$('.box-wrap').hide().css('opacity','1');
+	})
+	$('.shade').on('click',function(e){
+		$('.box-wrap').show();
+	})
+	// document.querySelector('.confirm').addEventListener('click', function(e){
+	// 	e.stopPropagation();
+	// 	document.querySelector('.box-wrap').style.display = 'none';
+	// })
+	// document.querySelector('.shade').addEventListener('click', function(){
+	// 	console.log(0)
+	// 	document.querySelector('.box-wrap').style.display = 'block';
+	// })
+</script>
+</html>
